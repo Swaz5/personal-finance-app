@@ -1,0 +1,11 @@
+# Demo brokerage activity export. Amount is already the net cash effect per
+# row (buys negative, dividends/incoming funds positive). Action is prefixed
+# onto the description since the same security name shows up for a Buy and
+# a dividend alike.
+institution: "Demo Investments"
+date_column: "Date"
+date_format: "%m/%d/%Y"
+description_column: "Description"
+description_extra_column: "Action"
+amount_mode: single
+amount_column: "Amount"

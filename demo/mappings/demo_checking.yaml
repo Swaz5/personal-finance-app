@@ -1,0 +1,11 @@
+# Demo checking export. Separate Withdrawal/Deposit columns instead of one
+# signed amount (amount_mode: split). The Balance column is the running
+# balance after each row — the importer ignores it; demo.py reads the
+# newest row to seed the balances table.
+institution: "Demo Bank"
+date_column: "Date"
+date_format: "%m/%d/%Y"
+description_column: "Description"
+amount_mode: split
+debit_column: "Withdrawal"
+credit_column: "Deposit"

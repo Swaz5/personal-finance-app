@@ -1,0 +1,9 @@
+# Demo credit card export. Card-issuer convention, inverted from ours:
+# purchases positive, payments/credits negative. negate: true flips both.
+institution: "Demo Card Services"
+date_column: "Trans Date"
+date_format: "%m/%d/%Y"
+description_column: "Description"
+amount_mode: single
+amount_column: "Amount"
+negate: true

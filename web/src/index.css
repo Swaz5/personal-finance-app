@@ -1,0 +1,25 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "IBM Plex Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, "SF Mono", monospace;
+
+  /* BUILD_PLAN.md section 7 — color is semantic only, never decorative. */
+  --color-ground: #0f151e;
+  --color-panel: #17202c;
+  --color-line: #28323f;
+  --color-ink: #e7edf3;
+  --color-ink-dim: #8393a5;
+  --color-positive: #4fb286;
+  --color-negative: #cc5f5f;
+  --color-flag: #e0a458;
+}
+
+body {
+  font-family: var(--font-sans);
+}
+
+/* Every number in Plex Mono — tabular figures so columns of numbers align. */
+.font-mono {
+  font-variant-numeric: tabular-nums;
+}

@@ -1,0 +1,26 @@
+# Starter categorization rules for the demo. In real use, rules accumulate
+# from manual corrections on the Categorize page. A few demo merchants are
+# deliberately left without a rule so there's something to categorize
+# (by hand, or with the Ollama fallback).
+rules:
+  - { pattern: "DIRECT DEP", category: "Income" }
+  - { pattern: "Dividend", category: "Income" }
+  - { pattern: "Buy - ", category: "Transfer" }
+  - { pattern: "MAPLE GROVE APTS", category: "Housing" }
+  - { pattern: "CITY POWER", category: "Utilities" }
+  - { pattern: "FIBERLINK", category: "Utilities" }
+  - { pattern: "SAFEHARBOR", category: "Insurance" }
+  - { pattern: "STUDENT LOAN", category: "Debt Payments" }
+  - { pattern: "STREAMBOX", category: "Subscriptions" }
+  - { pattern: "TUNEWAVE", category: "Subscriptions" }
+  - { pattern: "CLOUDVAULT", category: "Subscriptions" }
+  - { pattern: "HARBOR FITNESS", category: "Subscriptions" }
+  - { pattern: "GREENLEAF MARKET", category: "Groceries" }
+  - { pattern: "FRESHWAY", category: "Groceries" }
+  - { pattern: "BLUE KETTLE", category: "Dining Out" }
+  - { pattern: "LUNA TAQUERIA", category: "Dining Out" }
+  - { pattern: "DOORDROP", category: "Dining Out" }
+  - { pattern: "QUICKFUEL", category: "Transportation" }
+  - { pattern: "METRO TRANSIT", category: "Transportation" }
+  - { pattern: "NORTHWIND OUTFITTERS", category: "Shopping" }
+  - { pattern: "CORNER PHARMACY", category: "Healthcare" }

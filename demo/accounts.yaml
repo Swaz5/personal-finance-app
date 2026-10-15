@@ -1,0 +1,18 @@
+# Demo institutions and accounts. Entirely fictional — used by `python demo.py`.
+# Order matters only cosmetically: the Afford page defaults to the first account.
+institutions:
+  - name: "Demo Bank"
+    kind: bank
+    accounts:
+      - name: "Demo Checking"
+        type: checking
+  - name: "Demo Card Services"
+    kind: card
+    accounts:
+      - name: "Demo Credit Card"
+        type: credit
+  - name: "Demo Investments"
+    kind: brokerage
+    accounts:
+      - name: "Demo Brokerage"
+        type: brokerage

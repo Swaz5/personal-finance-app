@@ -1,0 +1,23 @@
+# Copy to config/accounts.yaml (gitignored) and list your own institutions
+# and accounts. Never put account numbers here. Re-running the seed is safe:
+# rows are matched by name, so edits update rather than duplicate.
+#
+# institution.kind: bank | brokerage | card | loan
+# account.type:     checking | savings | credit | brokerage | retirement | loan
+institutions:
+  - name: "Example Bank"
+    kind: bank
+    accounts:
+      - name: "Everyday Checking"
+        type: checking
+  - name: "Example Card Issuer"
+    kind: card
+    accounts:
+      - name: "Rewards Card"
+        type: credit
+  - name: "Example Brokerage"
+    kind: brokerage
+    accounts:
+      - name: "Taxable Brokerage"
+        type: brokerage
+        include_in_net_worth: true

@@ -1,0 +1,53 @@
+# --- Real financial data: never commit ---------------------------------
+# data/ holds finance.db, real statement CSVs, and the generated demo.db.
+data/
+*.db
+*.db-journal
+*.sqlite
+*.sqlite3
+# Statement exports of any kind, anywhere...
+*.csv
+*.ofx
+*.qfx
+*.qbo
+*.xlsx
+*.xls
+# ...except the synthetic samples, which are safe by construction.
+!demo/statements/
+!demo/statements/*.csv
+
+# Personal config: your institutions/accounts and your bank's CSV mappings.
+# The demo equivalents live in demo/ and are committed.
+config/accounts.yaml
+config/mappings/*.yaml
+
+# --- Secrets ------------------------------------------------------------
+.env
+.env.*
+!.env.example
+
+# --- Logs -----------------------------------------------------------------
+*.log
+
+# --- Python ---------------------------------------------------------------
+.venv/
+__pycache__/
+*.pyc
+*.pyo
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+*.egg-info/
+
+# --- Node / web -----------------------------------------------------------
+node_modules/
+web/dist/
+web/.vite/
+npm-debug.log*
+
+# --- Editor / OS ----------------------------------------------------------
+.vscode/
+.claude/
+.idea/
+.DS_Store
+Thumbs.db
