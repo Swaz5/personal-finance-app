@@ -246,7 +246,7 @@ def get_category_bars(
     session: SessionDep, year: int | None = None, month: int | None = None, trailing_months: int = 6
 ) -> list[dict]:
     """This month vs. your normal, per spend category — the ghost-marker bar
-    chart (section 7). Defaults to the current calendar month."""
+    chart. Defaults to the current calendar month."""
     today = date.today()
     year = year or today.year
     month = month or today.month
@@ -294,7 +294,7 @@ def get_settings(session: SessionDep) -> Settings:
 
 @app.post("/api/settings/emergency-floor")
 def set_emergency_floor(session: SessionDep, months: int, trailing_months: int = 6) -> dict:
-    """Floor = N months of trailing median fixed expenses (section 4).
+    """Floor = N months of trailing median fixed expenses.
     Recomputes and overwrites settings.emergency_floor_cents."""
     monthly_fixed = trailing_fixed_expense_monthly(session, months=trailing_months)
     floor_cents = monthly_fixed * months

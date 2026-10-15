@@ -1,5 +1,5 @@
 """The payoff feature. Four factors, a verdict with the actual numbers
-attached — never a vibe. See BUILD_PLAN.md section 4.
+attached — never a vibe.
 
 1. Post-purchase cash vs. emergency floor.
 2. Effect on the 90-day cash trough.

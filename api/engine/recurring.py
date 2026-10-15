@@ -1,5 +1,5 @@
 """Recurring bill/subscription detection. Load-bearing, not a nice-to-have —
-the Phase 4 projection engine trusts this list to know what's coming.
+the projection engine trusts this list to know what's coming.
 
 Group by normalized merchant (and sign, so a merchant's charges and its
 occasional refunds don't get averaged together), require >=3 occurrences
@@ -9,7 +9,7 @@ with stable amount (within 10% of the median) and consistent gap (within
 The pattern-finding core (_stability) is shared with projection.py, which
 needs the same math scoped to one account and inclusive of transfers — a
 credit card payment leaving checking is real cash movement even though
-it's excluded from spend categorization (rule 3).
+it's excluded from spend categorization.
 """
 
 import statistics

@@ -1,6 +1,6 @@
 """Cash flow: income, fixed/variable/discretionary splits, trailing medians.
 
-Rule 5: medians, not means — one Costco run or one annual insurance payment
+Medians, not means — one Costco run or one annual insurance payment
 shouldn't move a category's "normal." Months with zero activity count as $0
 in the window, not as missing — skipping a category some months shouldn't
 inflate its baseline by only averaging over the months you used it.
@@ -100,7 +100,7 @@ def trailing_median_by_category(
 def monthly_spend_by_category(session: Session, year: int, month: int) -> dict[int, int]:
     """{category_id: spend_cents} (positive magnitude) for one calendar month,
     spend categories only (income/transfer excluded) — pairs with
-    trailing_median_by_category for "this month vs. your normal" (section 7)."""
+    trailing_median_by_category for "this month vs. your normal"."""
     start, end = _month_bounds(year, month)
     kind_map = _category_kind_map(session)
     txns = session.exec(
@@ -122,7 +122,7 @@ def monthly_spend_by_category(session: Session, year: int, month: int) -> dict[i
 
 def trailing_fixed_expense_monthly(session: Session, months: int = 6, as_of: date | None = None) -> int:
     """Sum of trailing medians across fixed-kind categories only — the input
-    to the emergency floor (N months of fixed expenses, section 4)."""
+    to the emergency floor (N months of fixed expenses)."""
     kind_map = _category_kind_map(session)
     medians = trailing_median_by_category(session, months=months, as_of=as_of)
     return sum(cents for cat_id, cents in medians.items() if kind_map.get(cat_id) == CategoryKind.fixed)

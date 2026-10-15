@@ -1,8 +1,8 @@
-"""Holdings + brokerage balance orchestration (Phase 5, manual-entry path).
+"""Holdings + brokerage balance orchestration (manual-entry path).
 Seeds positions once, then refresh re-prices the same positions going
 forward. Quantity changes (new buys/sells) require re-seeding — this app
-doesn't parse share quantities out of the CSV importer (Phase 1 only
-captured cash effect), so it can't detect position changes on its own.
+doesn't parse share quantities out of the CSV importer (it only
+captures cash effect), so it can't detect position changes on its own.
 """
 
 from collections.abc import Callable

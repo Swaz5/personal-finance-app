@@ -1,5 +1,5 @@
 """Categorization pipeline: rules first, LLM fallback only for what rules
-miss (section 5). Manual overrides write back a new rule, so the LLM's job
+miss. Manual overrides write back a new rule, so the LLM's job
 shrinks every month.
 
 Transfers are categorized directly from the is_transfer flag, bypassing

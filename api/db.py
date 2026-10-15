@@ -1,4 +1,4 @@
-"""SQLite engine + session wiring. Table schema lives in models.py (Phase 1).
+"""SQLite engine + session wiring. Table schema lives in models.py.
 Which database file is used (real vs. demo) is decided in paths.py."""
 
 from collections.abc import Generator

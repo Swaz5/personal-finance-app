@@ -1,6 +1,6 @@
-"""SQLModel table definitions. See BUILD_PLAN.md section 2 for the data model rules.
+"""SQLModel table definitions.
 
-Money is always int cents. Sign convention (rule 2): from the account's
+Money is always int cents. Sign convention: from the account's
 perspective, outflow negative, inflow positive. Enforced at the importer
 boundary, not here.
 """

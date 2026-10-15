@@ -2,7 +2,7 @@ import { useRef, useState } from 'react'
 import type { DayPoint } from '../types'
 import { formatCents, formatShort } from '../types'
 
-/** The signature element (BUILD_PLAN.md section 7): 90-day forward cash
+/** The signature element: 90-day forward cash
  * projection with the emergency floor as a hard horizontal rule, the
  * lowest point called out directly, and a crosshair+tooltip on hover. */
 export function TroughChart({

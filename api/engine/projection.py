@@ -1,8 +1,8 @@
 """90-day forward cash projection for a single account. This is the
-signature view per BUILD_PLAN.md section 7 — the trough chart.
+signature view — the trough chart.
 
 Scoped to one account and inclusive of transfers: a card payment leaving
-checking is real cash movement even though rule 3 excludes it from spend
+checking is real cash movement even though it's excluded from spend
 math. Projects only the recurring patterns found directly on this
 account's own transaction history — it does not reach into the
 cross-account `recurring` table, which is transfer-excluded and mixes in

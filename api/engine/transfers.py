@@ -1,4 +1,4 @@
-"""Transfer-pair detection (rule 3). Moving $2,000 from checking to a credit
+"""Transfer-pair detection. Moving $2,000 from checking to a credit
 card is not spending — it's the same dollars changing accounts. Naive apps
 show spend 2-3x real and you stop trusting the numbers.
 

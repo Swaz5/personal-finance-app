@@ -4,7 +4,7 @@
   --font-sans: "IBM Plex Sans", ui-sans-serif, system-ui, sans-serif;
   --font-mono: "IBM Plex Mono", ui-monospace, "SF Mono", monospace;
 
-  /* BUILD_PLAN.md section 7 — color is semantic only, never decorative. */
+  /* Color is semantic only, never decorative. */
   --color-ground: #0f151e;
   --color-panel: #17202c;
   --color-line: #28323f;

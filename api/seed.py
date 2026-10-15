@@ -1,5 +1,5 @@
 """Default category tree and settings singleton. Idempotent — safe to call on
-every startup. Rule 6: 15-20 categories max, coarse enough to actually maintain.
+every startup. 15-20 categories max, coarse enough to actually maintain.
 """
 
 from pathlib import Path

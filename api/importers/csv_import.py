@@ -1,9 +1,9 @@
-"""Phase 1 importer: one YAML mapping per institution's CSV export.
+"""CSV importer: one YAML mapping per institution's CSV export.
 
 Some banks give a single signed amount column; others split debit/credit
 into two columns. Both are handled. Every mapping must normalize to the
 sign convention in base.py before rows leave parse_csv — this module is
-the boundary, so it enforces rule 2, not anything downstream.
+the boundary, so it enforces the sign convention, not anything downstream.
 """
 
 import csv as csv_module

@@ -1,9 +1,9 @@
 import type { CategoryBar } from '../types'
 import { formatCents, formatShort } from '../types'
 
-/** Horizontal bars per category, this month vs. the trailing 6-month median
- * (section 7) — no pie charts, no per-category colors (color is semantic
- * only). The median shows as a ghost tick on the same neutral bar. */
+/** Horizontal bars per category, this month vs. the trailing 6-month median.
+ * No pie charts, no per-category colors (color is semantic only). The
+ * median shows as a ghost tick on the same neutral bar. */
 export function CategoryBars({ rows }: { rows: CategoryBar[] }) {
   const spend = rows.filter((r) => r.kind !== 'income' && (r.current_cents > 0 || r.median_cents > 0))
   if (spend.length === 0) return <p className="text-ink-dim text-sm">Nothing to compare yet.</p>

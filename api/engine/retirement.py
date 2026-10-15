@@ -1,4 +1,4 @@
-"""Retirement pacing — a scenario tool, not a prediction (section 4).
+"""Retirement pacing — a scenario tool, not a prediction.
 Three real (inflation-adjusted) return scenarios, never one number. A
 single point estimate on a 30-year projection is false precision.
 
@@ -9,7 +9,7 @@ hit the goal under that assumption — a more actionable number than a
 raw target.
 
 Uses whatever accounts are typed brokerage/retirement as "invested"
-balance, and the trailing actual net cash flow (Phase 3) as the ongoing
+balance, and the trailing actual net cash flow (from cashflow.py) as the ongoing
 contribution rate — this app has no 401k/employer-match data to compute
 the "second version" of savings rate the plan mentions, so it isn't
 attempted; the contribution rate here is the plain net income minus

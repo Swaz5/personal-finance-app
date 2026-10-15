@@ -1,5 +1,5 @@
 """LLM fallback for categorization — only for transactions the rules engine
-missed (section 5). The LLM classifies text; it never computes a number
+missed. The LLM classifies text; it never computes a number
 that appears in a financial decision.
 
 Ollama keeps this fully on-device per the privacy note. Swap in an

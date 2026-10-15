@@ -1,15 +1,14 @@
-"""Net worth over time (Phase 5). Checking/savings/credit balances are
+"""Net worth over time. Checking/savings/credit balances are
 reconstructed exactly by walking backward from the latest known balance
 and undoing each day's transactions — real history, not an estimate.
 
 Brokerage and any account with no transaction history (e.g. an old
 account whose statements aren't available) can't be reconstructed this
 way, so their current balance is held flat across the whole lookback
-window. This is a known, deliberate approximation — see BUILD_PLAN.md
-Phase 5 notes. It means past net worth is understated for accounts that
-have genuinely grown, and the chart's shape near "today" is trustworthy
-while further back it increasingly reflects only the accounts we can
-actually reconstruct.
+window. This is a known, deliberate approximation. It means past net
+worth is understated for accounts that have genuinely grown, and the
+chart's shape near "today" is trustworthy while further back it
+increasingly reflects only the accounts we can actually reconstruct.
 """
 
 from collections import defaultdict

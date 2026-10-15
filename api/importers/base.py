@@ -1,7 +1,7 @@
 """Importer contract. Every source (CSV, SnapTrade, SimpleFIN) conforms to this
-so the source is swappable — see BUILD_PLAN.md section 3.
+so the source is swappable.
 
-Sign convention (rule 2), enforced here at the boundary: from the account's
+Sign convention, enforced here at the boundary: from the account's
 perspective, outflow negative, inflow positive. A credit card purchase is
 negative; a payment to the card is positive. Every importer must normalize
 to this before a RawTransaction leaves it — nothing downstream re-checks it.
@@ -41,7 +41,7 @@ class Importer(Protocol):
 
 
 def content_hash(account_id: int, posted_at: date, amount_cents: int, description_raw: str) -> str:
-    """Dedup key (rule 4). API sources should prefer a stable external_id when
+    """Dedup key. API sources should prefer a stable external_id when
     available and fall back to this."""
     raw = f"{account_id}|{posted_at.isoformat()}|{amount_cents}|{description_raw}"
     return hashlib.sha256(raw.encode("utf-8")).hexdigest()
@@ -61,7 +61,7 @@ def ingest(
     file_name: str,
     raw_transactions: list[RawTransaction],
 ) -> ImportResult:
-    """Shared write path for every importer: dedup via content hash (rule 4),
+    """Shared write path for every importer: dedup via content hash,
     record the batch, insert only new rows. CSVs overlap on re-download —
     without this every average downstream is poisoned by duplicates."""
     batch = ImportBatch(source=source, file_name=file_name, row_count=0)

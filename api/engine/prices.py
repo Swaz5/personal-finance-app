@@ -1,7 +1,7 @@
-"""Current price lookup for holdings market value (Phase 5). Yahoo Finance's
+"""Current price lookup for holdings market value. Yahoo Finance's
 public chart endpoint — no API key, no signup. Current price only; this
-does not fetch history (see BUILD_PLAN.md Phase 5 notes on the net worth
-chart's brokerage approximation).
+does not fetch history (see networth.py on the net worth chart's
+brokerage approximation).
 """
 
 import json
