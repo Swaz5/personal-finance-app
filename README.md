@@ -181,10 +181,24 @@ For live-reload development, run the API with `--reload` and `npm run dev` in `w
 
 ## What I Learned
 
-TODO
+**A small local LLM should never own derived data.** The first version let the Ollama fallback write back its own cleaned-up merchant name. Two things went wrong at once: the 3B model echoed an example from the prompt back verbatim for transactions it was unsure about, and it gave slightly different names for the same unchanged description on different calls, with one merchant ending up under 13 spellings. Recurring detection groups by merchant name, so subscriptions silently stopped looking recurring. The fix was a division of labor: a deterministic normalizer owns merchant names, the LLM only picks from a closed list of categories, and its output is validated before anything is written. Rules handle the bulk, and every manual correction becomes a rule, so the model sees less each month.
+
+**Pick one sign convention and enforce it at the boundary.** Banks disagree: one exports a single signed column, a card issuer exports purchases as *positive*, and a checking account splits withdrawals and deposits into two columns. Normalizing all of them inside the importer (outflow negative, inflow positive) and storing liabilities as negative balances means net worth is just a sum, and no downstream code ever special-cases an account type. The `negate` flag in a mapping file exists because of exactly one issuer.
+
+**"Not spending" and "not cash movement" are different things.** Transfers have to be excluded from spending, or a card payment counts the same dollars twice. But for the 90-day projection, that same card payment is very real money leaving checking. The recurring-pattern math ended up as one shared function, called with transfers excluded for the bills list and included for the cash projection.
+
+**Forecasts need a way to forget.** The first projection extrapolated every recurring pattern it had ever seen, including paychecks from a previous job that had stopped long ago, which quietly inflated every future balance. Patterns more than two cycles overdue are now treated as dead.
+
+**Be explicit about what's approximated.** Net worth history is exact for checking and credit (walk backward from today's balance, undoing each day's transactions), but brokerage accounts have no daily history, so they're held flat. The projection can't see a card payment whose amount varies every month. Both limitations are written into the code's docstrings instead of being papered over with made-up data.
+
+**Desktop glue is its own debugging problem.** The tray launcher runs under `pythonw.exe`, which has no console, so a crash looks like "nothing happened." It logs to a file for that reason. On one machine, antivirus behavior monitoring re-executed every `pythonw` launch as a parent/child pair, starting two servers that fought over the port. The fix was to make startup idempotent: check for a healthy server before spawning one.
+
+**Color can't be the only signal.** A palette check showed the red/green verdict colors sit too close together for deuteranopia, so every verdict badge also spells out its meaning ("Looks fine" / "Close call" / "Can't afford it").
+
+**Synthetic data is a test suite waiting to happen.** Building the demo dataset for this public version meant planting known transfers and known duplicates, which turned "it works on my statements" into exact assertions: 12 planted pairs, 12 found, zero false positives. Writing those tests immediately surfaced two bugs that real-data use had never hit: a dashboard button hardcoded to one database ID, and an LLM fallback that crashed if a model ever returned a category name not on the list.
 
 ---
 
 ## License
 
-TODO
+MIT. See [LICENSE](LICENSE).
